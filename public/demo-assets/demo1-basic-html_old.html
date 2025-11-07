@@ -1,0 +1,140 @@
+<!-- public/demo1-basic-html.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 1 - Análisis Básico HTML</title>
+    <style>
+        .bad-contrast {
+            color: #888888;
+            background-color: #ffffff;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .fake-button {
+            padding: 10px 20px;
+            background: #007acc;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .good-contrast {
+            color: #000000;
+            background-color: #ffffff;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Demo 1: Problemas Comunes de Accesibilidad</h1>
+        <p>Este archivo contiene problemas intencionados para demostrar axe-linter</p>
+    </header>
+
+    <main>
+        <!-- Sección 1: Imágenes sin alt -->
+        <section id="images-section">
+            <h2>1. Imágenes sin texto alternativo</h2>
+            <p>Problema: Las imágenes deben tener atributo alt descriptivo</p>
+            <img src="https://via.placeholder.com/150" width="150" height="150">
+            <img src="https://via.placeholder.com/200x100" width="200" height="100">
+
+            <div style="margin-top: 15px; padding: 10px; background: #e8f5e8;">
+                <h3>✅ Corrección:</h3>
+                <img src="https://via.placeholder.com/150" alt="Logo de la empresa" width="150" height="150">
+                <img src="https://via.placeholder.com/200x100" alt="Gráfico de progreso mensual" width="200"
+                    height="100">
+            </div>
+        </section>
+
+        <!-- Sección 2: Problemas de contraste -->
+        <section id="contrast-section">
+            <h2>2. Contraste insuficiente</h2>
+            <p>Problema: Texto gris claro sobre fondo blanco</p>
+            <p class="bad-contrast">
+                Este texto tiene muy poco contraste con el fondo (ratio < 4.5:1) </p>
+                    <button
+                        style="color: #dddddd; background-color: #eeeeee; padding: 8px 16px; border: none; border-radius: 4px;">
+                        Botón con mal contraste
+                    </button>
+
+                    <div style="margin-top: 15px; padding: 10px; background: #e8f5e8;">
+                        <h3>✅ Corrección:</h3>
+                        <p class="good-contrast">
+                            Este texto tiene buen contraste con el fondo (ratio > 4.5:1)
+                        </p>
+                        <button
+                            style="color: #ffffff; background-color: #007acc; padding: 8px 16px; border: none; border-radius: 4px;">
+                            Botón con buen contraste
+                        </button>
+                    </div>
+        </section>
+
+        <!-- Sección 3: Formularios sin labels -->
+        <section id="forms-section">
+            <h2>3. Formularios sin etiquetas</h2>
+            <p>Problema: Inputs sin labels asociados</p>
+            <input type="text" placeholder="Nombre" style="padding: 8px; margin: 5px;">
+            <input type="email" placeholder="Email" style="padding: 8px; margin: 5px;">
+            <input type="password" placeholder="Contraseña" style="padding: 8px; margin: 5px;">
+
+            <div style="margin-top: 15px; padding: 10px; background: #e8f5e8;">
+                <h3>✅ Corrección:</h3>
+                <div>
+                    <label for="username">Nombre de usuario:</label>
+                    <input id="username" type="text" style="padding: 8px; margin: 5px;">
+                </div>
+                <div>
+                    <label for="user-email">Correo electrónico:</label>
+                    <input id="user-email" type="email" style="padding: 8px; margin: 5px;">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 4: Elementos interactivos incorrectos -->
+        <section id="interactive-section">
+            <h2>4. Elementos interactivos semánticamente incorrectos</h2>
+            <p>Problema: Uso de divs y spans como botones</p>
+            <div class="fake-button" onclick="alert('Clicked!')">
+                Div haciendo de botón
+            </div>
+            <span onclick="submitForm()" style="color: #007acc; cursor: pointer; text-decoration: underline;">
+                Span haciendo de botón
+            </span>
+
+            <div style="margin-top: 15px; padding: 10px; background: #e8f5e8;">
+                <h3>✅ Corrección:</h3>
+                <button class="fake-button" onclick="alert('Clicked!')">
+                    Botón semántico correcto
+                </button>
+                <button onclick="submitForm()"
+                    style="color: #007acc; background: none; border: none; cursor: pointer; text-decoration: underline;">
+                    Botón con estilo de enlace
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function submitForm() {
+            console.log('Form submitted');
+            alert('Formulario enviado (simulado)');
+        }
+    </script>
+</body>
+
+</html>

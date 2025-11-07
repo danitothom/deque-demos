@@ -1,0 +1,316 @@
+<!-- public/demo8-complete-workflow.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 8 - Flujo de Trabajo Completo</title>
+    <style>
+        .workflow-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .workflow-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #007acc;
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: start;
+            gap: 20px;
+            position: relative;
+        }
+
+        .timeline-icon {
+            width: 50px;
+            height: 50px;
+            background: #007acc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2em;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            flex: 1;
+        }
+
+        .tool-integration {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .tool-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+        <div class="header">
+            <h1>🔄 Demo 8: Flujo de Trabajo Completo</h1>
+            <p>Integración end-to-end de accesibilidad en el ciclo de desarrollo</p>
+            <div
+                style="background: #00BCD4; color: white; padding: 10px 20px; border-radius: 20px; display: inline-block;">
+                Complete Workflow
+            </div>
+        </div>
+
+        <!-- Timeline del Flujo -->
+        <div class="workflow-timeline">
+            <!-- Fase 1 -->
+            <div class="timeline-item">
+                <div class="timeline-icon">1️⃣</div>
+                <div class="timeline-content">
+                    <h3>📝 Desarrollo Local</h3>
+                    <p><strong>Axe Linter en VS Code</strong></p>
+                    <ul>
+                        <li>Análisis en tiempo real mientras programas</li>
+                        <li>Sugerencias automáticas de corrección</li>
+                        <li>Integración con el editor</li>
+                    </ul>
+                    <div class="tool-integration">
+                        <div class="tool-card">
+                            <div>🔍</div>
+                            <strong>Axe Linter</strong>
+                            <div style="font-size: 0.8em; color: #666;">VS Code</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fase 2 -->
+            <div class="timeline-item">
+                <div class="timeline-icon">2️⃣</div>
+                <div class="timeline-content">
+                    <h3>🧪 Testing en Desarrollo</h3>
+                    <p><strong>Tests automatizados y manuales</strong></p>
+                    <ul>
+                        <li>Tests unitarios con axe-core</li>
+                        <li>Testing en navegador con DevTools</li>
+                        <li>Verificación manual con lectores de pantalla</li>
+                    </ul>
+                    <div class="tool-integration">
+                        <div class="tool-card">
+                            <div>🌐</div>
+                            <strong>Axe DevTools</strong>
+                            <div style="font-size: 0.8em; color: #666;">Browser</div>
+                        </div>
+                        <div class="tool-card">
+                            <div>📱</div>
+                            <strong>Axe Mobile</strong>
+                            <div style="font-size: 0.8em; color: #666;">iOS/Android</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fase 3 -->
+            <div class="timeline-item">
+                <div class="timeline-icon">3️⃣</div>
+                <div class="timeline-content">
+                    <h3>🔗 Integración Continua</h3>
+                    <p><strong>CI/CD Pipeline Integration</strong></p>
+                    <ul>
+                        <li>Escaneo automático en cada PR</li>
+                        <li>Gates de calidad automáticos</li>
+                        <li>Reportes en pull requests</li>
+                    </ul>
+                    <div class="code-example">
+                        # GitHub Actions
+                        - name: Accessibility Tests
+                        uses: deque/axe-action@v1
+                        with:
+                        directory: ./src
+                        level: error
+                        fail-on-violation: true
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fase 4 -->
+            <div class="timeline-item">
+                <div class="timeline-icon">4️⃣</div>
+                <div class="timeline-content">
+                    <h3>📊 Monitoreo Continuo</h3>
+                    <p><strong>Axe Developer Hub</strong></p>
+                    <ul>
+                        <li>Dashboard centralizado</li>
+                        <li>Métricas y tendencias</li>
+                        <li>Alertas proactivas</li>
+                        <li>Reportes ejecutivos</li>
+                    </ul>
+                    <div class="tool-integration">
+                        <div class="tool-card">
+                            <div>🚀</div>
+                            <strong>Developer Hub</strong>
+                            <div style="font-size: 0.8em; color: #666;">Enterprise</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fase 5 -->
+            <div class="timeline-item">
+                <div class="timeline-icon">5️⃣</div>
+                <div class="timeline-content">
+                    <h3>🔄 Mejora Continua</h3>
+                    <p><strong>Análisis y Optimización</strong></p>
+                    <ul>
+                        <li>Retroalimentación del equipo</li>
+                        <li>Análisis de root cause</li>
+                        <li>Capacitación y training</li>
+                        <li>Optimización de procesos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ejemplo de Pipeline -->
+        <div class="demo-card">
+            <h2>⚙️ Pipeline de CI/CD Ejemplo</h2>
+            <div class="demo-grid">
+                <div>
+                    <h3>GitHub Actions</h3>
+                    <div class="code-example">
+                        name: Accessibility Pipeline
+
+                        on: [push, pull_request]
+
+                        jobs:
+                        a11y-test:
+                        runs-on: ubuntu-latest
+                        steps:
+                        - uses: actions/checkout@v3
+
+                        - name: Setup Node.js
+                        uses: actions/setup-node@v3
+                        with:
+                        node-version: '18'
+
+                        - name: Install dependencies
+                        run: npm ci
+
+                        - name: Run Axe tests
+                        run: |
+                        npm run test:a11y
+                        npm run test:a11y:mobile
+
+                        - name: Upload to Developer Hub
+                        run: |
+                        npx axe-hub upload \
+                        --project ${{ secrets.AXE_PROJECT }} \
+                        --key ${{ secrets.AXE_API_KEY }}
+
+                        - name: Fail on critical violations
+                        if: failure()
+                        run: |
+                        echo "❌ Critical accessibility violations found"
+                        exit 1
+                    </div>
+                </div>
+                <div>
+                    <h3>GitLab CI</h3>
+                    <div class="code-example">
+                        # .gitlab-ci.yml
+                        stages:
+                        - test
+                        - accessibility
+
+                        accessibility_test:
+                        stage: accessibility
+                        image: node:18
+                        script:
+                        - npm ci
+                        - npm run build
+                        - npm run test:a11y
+                        - npx axe-hub upload --project $AXE_PROJECT
+                        rules:
+                        - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+                        allow_failure: false
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Métricas de Éxito -->
+        <div class="demo-card">
+            <h2>📈 Métricas de Éxito</h2>
+            <div class="metric-cards">
+                <div class="metric-card">
+                    <div>Time to Fix</div>
+                    <div class="metric-value metric-good">2.3d</div>
+                    <div>Promedio de resolución</div>
+                </div>
+                <div class="metric-card">
+                    <div>Violation Rate</div>
+                    <div class="metric-value metric-good">-65%</div>
+                    <div>Reducción en 6 meses</div>
+                </div>
+                <div class="metric-card">
+                    <div>Team Adoption</div>
+                    <div class="metric-value metric-good">92%</div>
+                    <div>Developers usando las tools</div>
+                </div>
+                <div class="metric-card">
+                    <div>WCAG Compliance</div>
+                    <div class="metric-value metric-good">96%</div>
+                    <div>Nivel AA alcanzado</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Casos de Éxito -->
+        <div class="demo-card">
+            <h2>🏆 Casos de Éxito</h2>
+            <div class="demo-grid">
+                <div>
+                    <h3>🏦 Banco Global</h3>
+                    <ul>
+                        <li><strong>Antes:</strong> 247 violaciones críticas</li>
+                        <li><strong>Después:</strong> 12 violaciones menores</li>
+                        <li><strong>Timeline:</strong> 8 meses</li>
+                        <li><strong>ROI:</strong> 340% en 1 año</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>🛒 Retail E-commerce</h3>
+                    <ul>
+                        <li><strong>Antes:</strong> 15% de bounce rate por accesibilidad</li>
+                        <li><strong>Después:</strong> 4% de bounce rate</li>
+                        <li><strong>Impacto:</strong> +28% en conversiones</li>
+                        <li><strong>Compliance:</strong> WCAG 2.1 AA</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

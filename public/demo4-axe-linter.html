@@ -1,0 +1,225 @@
+<!-- public/demo4-axe-linter.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 4 - Axe Linter en VS Code</title>
+    <style>
+        :root {
+            --vscode-blue: #007acc;
+            --vscode-dark: #1e1e1e;
+            --vscode-light: #f3f3f3;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: var(--vscode-light);
+            color: #333;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .vscode-theme {
+            background: var(--vscode-dark);
+            color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .demo-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .code-example {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+
+        .problem-line {
+            background: #ff6b6b;
+            padding: 2px 4px;
+            border-radius: 3px;
+            margin: 2px 0;
+        }
+
+        .solution-line {
+            background: #51cf66;
+            padding: 2px 4px;
+            border-radius: 3px;
+            margin: 2px 0;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .icon {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>🔍 Demo 4: Axe Linter en VS Code</h1>
+        <p>Integración de análisis de accesibilidad en tu editor de código</p>
+        <div style="background: #007acc; color: white; padding: 10px 20px; border-radius: 20px; display: inline-block;">
+            VS Code Extension
+        </div>
+    </div>
+
+    <div class="demo-grid">
+        <!-- Configuración -->
+        <div class="demo-card">
+            <h2>⚙️ Configuración</h2>
+            <p>Configuración del workspace en VS Code:</p>
+
+            <div class="code-example">
+                // .vscode/settings.json
+                {
+                "axe-linter.enable": true,
+                "axe-linter.run": "onSave",
+                "axe-linter.level": "warning",
+                "axe-linter.showImpact": true,
+                "axe-linter.rules": {
+                "color-contrast": "error",
+                "image-alt": "error",
+                "button-name": "warning",
+                "label": "warning"
+                }
+                }
+            </div>
+        </div>
+
+        <!-- Ejemplos de Código -->
+        <div class="demo-card">
+            <h2>📝 Ejemplos de Código</h2>
+            <p>Problemas detectados en tiempo real:</p>
+
+            <div class="code-example">
+                &lt;!-- Problema: Imagen sin alt --&gt;
+                &lt;img src="logo.png"&gt;
+                <span class="problem-line">// ❌ Violación: Las imágenes deben tener texto alternativo</span>
+
+                &lt;!-- Solución --&gt;
+                &lt;img src="logo.png" alt="Logo de la empresa"&gt;
+                <span class="solution-line">// ✅ Cumple con accesibilidad</span>
+
+                &lt;!-- Problema: Contraste insuficiente --&gt;
+                &lt;button style="color: #888; background: #fff;"&gt;
+                Botón con mal contraste
+                &lt;/button&gt;
+                <span class="problem-line">// ❌ Ratio de contraste 2.89:1 (mínimo 4.5:1)</span>
+            </div>
+        </div>
+
+        <!-- Flujo de Trabajo -->
+        <div class="demo-card">
+            <h2>🔄 Flujo de Trabajo</h2>
+            <ul class="feature-list">
+                <li><span class="icon">📝</span> Escribe código en VS Code</li>
+                <li><span class="icon">🔍</span> Axe Linter analiza en tiempo real</li>
+                <li><span class="icon">⚠️</span> Ve los problemas subrayados</li>
+                <li><span class="icon">💡</span> Recibe sugerencias de corrección</li>
+                <li><span class="icon">✅</span> Corrige antes de commit</li>
+            </ul>
+        </div>
+
+        <!-- Integración con Git -->
+        <div class="demo-card">
+            <h2>🔗 Integración con Git</h2>
+            <p>Pre-commit hooks para prevenir violaciones:</p>
+
+            <div class="code-example">
+                // package.json
+                {
+                "scripts": {
+                "precommit:a11y": "axe-linter src/",
+                "test:a11y": "axe-linter src/ --level=error"
+                }
+                }
+
+                // .husky/pre-commit
+                #!/bin/bash
+                npm run precommit:a11y
+            </div>
+        </div>
+    </div>
+
+    <!-- Comandos VS Code -->
+    <div class="demo-card">
+        <h2>⌨️ Comandos de VS Code</h2>
+        <div class="demo-grid">
+            <div>
+                <h3>Paleta de Comandos</h3>
+                <div class="vscode-theme">
+                    <div>Ctrl+Shift+P (Cmd+Shift+P en Mac)</div>
+                    <div>> Axe Linter: Scan Current File</div>
+                    <div>> Axe Linter: Scan Workspace</div>
+                    <div>> Axe Linter: Toggle Linter</div>
+                </div>
+            </div>
+            <div>
+                <h3>Atajos de Teclado</h3>
+                <div class="vscode-theme">
+                    <div>Ctrl+Shift+A → Escanear archivo actual</div>
+                    <div>Ctrl+Shift+L → Toggle linter</div>
+                    <div>Click en problema → Ir a documentación</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simulación de problemas de accesibilidad
+        console.log('Demo 4 - Axe Linter en VS Code');
+        console.log('Problemas simulados para demostración:');
+        console.log('❌ img sin atributo alt');
+        console.log('❌ Contraste insuficiente en botón');
+        console.log('⚠️  Label missing for input');
+        console.log('✅ Todos los problemas tienen soluciones documentadas');
+    </script>
+</body>
+
+</html>

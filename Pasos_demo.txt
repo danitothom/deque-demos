@@ -1,0 +1,16 @@
+# Desde terminal
+node scripts/scan-file.js public/demo1-basic-html.html
+
+# O desde VS Code con Cmd+Shift+P → "Tasks: Run Task"
+
+# 1. Verificar que todo está listo
+node scripts/check-server.js
+
+# 2. Instalar dependencias si es necesario
+npm install
+
+# 3. Ejecutar verificación completa silenciosa (en segundo plano)
+npm run demo:all > verification.log 2>&1 &
+
+# 4. Iniciar servidor de presentación
+npm run server

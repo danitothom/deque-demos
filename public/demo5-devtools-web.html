@@ -1,0 +1,214 @@
+<!-- public/demo5-devtools-web.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 5 - Axe DevTools for Web</title>
+    <style>
+        .devtools-theme {
+            background: #1e1e1e;
+            color: #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+
+        .browser-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .browser-tab {
+            padding: 10px 20px;
+            background: #f0f0f0;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+        }
+
+        .browser-tab.active {
+            background: #007acc;
+            color: white;
+        }
+
+        .scan-results {
+            background: white;
+            border: 2px solid #007acc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .violation-item {
+            padding: 15px;
+            border-left: 4px solid #e74c3c;
+            background: #fdf2f2;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+
+        .violation-item.serious {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .violation-item.moderate {
+            border-left-color: #f39c12;
+            background: #fef9e7;
+        }
+
+        .violation-item.minor {
+            border-left-color: #f1c40f;
+            background: #fef9e7;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+        <div class="header">
+            <h1>🌐 Demo 5: Axe DevTools for Web</h1>
+            <p>Análisis de accesibilidad en navegadores con extensiones</p>
+            <div
+                style="background: #4CAF50; color: white; padding: 10px 20px; border-radius: 20px; display: inline-block;">
+                Browser Extension
+            </div>
+        </div>
+
+        <!-- Navegadores Soportados -->
+        <div class="demo-card">
+            <h2>🖥️ Navegadores Soportados</h2>
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 20px 0;">
+                <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+                    <div style="font-size: 2em;">🔍</div>
+                    <h3>Chrome</h3>
+                    <p>Chrome Web Store</p>
+                </div>
+                <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+                    <div style="font-size: 2em;">🦊</div>
+                    <h3>Firefox</h3>
+                    <p>Firefox Add-ons</p>
+                </div>
+                <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+                    <div style="font-size: 2em;">🔵</div>
+                    <h3>Edge</h3>
+                    <p>Microsoft Store</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Simulación de DevTools -->
+        <div class="demo-card">
+            <h2>🔧 Panel de DevTools</h2>
+
+            <div class="browser-tabs">
+                <div class="browser-tab active">Elements</div>
+                <div class="browser-tab">Console</div>
+                <div class="browser-tab">Sources</div>
+                <div class="browser-tab" style="background: #007acc; color: white;">Axe</div>
+                <div class="browser-tab">Network</div>
+            </div>
+
+            <div class="devtools-theme">
+                <div style="color: #4EC9B0;">// Axe DevTools Panel</div>
+                <div style="margin: 10px 0;">
+                    <button
+                        style="background: #4CAF50; color: white; border: none; padding: 8px 16px; border-radius: 4px; margin-right: 10px;">
+                        ▶️ Analyze
+                    </button>
+                    <button
+                        style="background: #2196F3; color: white; border: none; padding: 8px 16px; border-radius: 4px;">
+                        ⚙️ Options
+                    </button>
+                </div>
+
+                <div style="border: 1px solid #444; border-radius: 4px; padding: 15px; margin: 15px 0;">
+                    <div style="color: #569CD6;">Scan Results:</div>
+                    <div style="color: #CE9178;">// 3 violations found</div>
+                    <div style="color: #CE9178;">// 12 passes</div>
+                    <div style="color: #CE9178;">// 2 incomplete</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resultados de Escaneo -->
+        <div class="demo-card">
+            <h2>📊 Resultados de Escaneo</h2>
+
+            <div class="scan-results">
+                <h3>Violaciones Encontradas (3)</h3>
+
+                <div class="violation-item serious">
+                    <h4>❌ Color Contrast (Serious)</h4>
+                    <p><strong>Elements:</strong> 2 elements with insufficient color contrast</p>
+                    <p><strong>Help:</strong> Ensures the contrast between foreground and background colors meets WCAG 2
+                        AA contrast ratio thresholds</p>
+                    <button
+                        style="background: #007acc; color: white; border: none; padding: 8px 16px; border-radius: 4px; margin-top: 10px;">
+                        👁️ Highlight Elements
+                    </button>
+                </div>
+
+                <div class="violation-item moderate">
+                    <h4>⚠️ Image Alt (Moderate)</h4>
+                    <p><strong>Elements:</strong> 1 image missing alt attribute</p>
+                    <p><strong>Help:</strong> Ensures &lt;img&gt; elements have alternate text or a role of none or
+                        presentation</p>
+                </div>
+
+                <div class="violation-item minor">
+                    <h4>💡 Heading Order (Minor)</h4>
+                    <p><strong>Elements:</strong> Skipped heading level</p>
+                    <p><strong>Help:</strong> Ensures the order of headings is semantically correct</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Características Avanzadas -->
+        <div class="demo-card">
+            <h2>🚀 Características Avanzadas</h2>
+            <div class="demo-grid">
+                <div>
+                    <h3>🔄 Escaneo Continuo</h3>
+                    <p>Análisis automático cuando cambia el DOM</p>
+                    <div class="code-example">
+                        // Modo watch automático
+                        axe.run(watch: true)
+                    </div>
+                </div>
+                <div>
+                    <h3>🎯 Escaneo Parcial</h3>
+                    <p>Analizar solo elementos específicos</p>
+                    <div class="code-example">
+                        // Escanear componente específico
+                        axe.run('#mi-componente')
+                    </div>
+                </div>
+                <div>
+                    <h3>📁 Exportar Resultados</h3>
+                    <p>Reportes en JSON, CSV, HTML</p>
+                    <div class="code-example">
+                        // Exportar resultados
+                        axe.run().then(results => {
+                        exportToJSON(results);
+                        });
+                    </div>
+                </div>
+                <div>
+                    <h3>🔧 API Programática</h3>
+                    <p>Integración con tests automatizados</p>
+                    <div class="code-example">
+                        // Uso programático
+                        const results = await axe.run(document);
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

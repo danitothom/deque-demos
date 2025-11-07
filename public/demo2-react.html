@@ -1,0 +1,343 @@
+<!-- public/demo2-react.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 2 - Problemas Comunes en React</title>
+    <style>
+        .react-component {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            background: white;
+        }
+
+        .bad-button {
+            background: #f0f0f0;
+            color: #666;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 16px;
+        }
+
+        .good-button {
+            background: #007acc;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 16px;
+        }
+
+        /* MODAL CORREGIDO */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            /* Inicialmente oculto */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            /* Mostrar cuando tenga clase active */
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-actions {
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        /* Mejoras visuales */
+        .problem-section {
+            border-left: 4px solid #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .solution-section {
+            border-left: 4px solid #27ae60;
+            background: #f2fdf2;
+            margin-top: 15px;
+            padding: 15px;
+        }
+
+        .custom-list {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .list-item {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: #f9f9f9;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            gap: 10px;
+        }
+
+        .form-group input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            flex: 1;
+        }
+
+        .status-message {
+            padding: 15px;
+            background: #e8f4fd;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root" class="react-component">
+        <header>
+            <h1>Demo 2: Problemas Comunes en Componentes React</h1>
+            <p>Esta demo muestra problemas de accesibilidad comunes en componentes React y sus soluciones.</p>
+        </header>
+
+        <!-- Botón para abrir modal (ahora funcional) -->
+        <section class="card">
+            <h2>🔘 Control de Modal</h2>
+            <p>Usa este botón para mostrar/ocultar el modal:</p>
+            <button class="good-button" onclick="toggleModal()">
+                🪟 Mostrar/Ocultar Modal
+            </button>
+        </section>
+
+        <!-- Problema 1: Modal sin gestión de foco -->
+        <section class="card problem-section">
+            <h2>🚫 1. Modal sin gestión de foco</h2>
+            <p><strong>Problema:</strong> Este modal no atrapa el foco del teclado y no es accesible para usuarios de
+                lectores de pantalla.</p>
+
+            <div class="modal-overlay" id="demoModal">
+                <div class="modal-content">
+                    <h3>Modal con Problemas de Accesibilidad</h3>
+                    <p>Este modal tiene varios problemas:</p>
+                    <ul>
+                        <li>❌ No atrapa el foco del teclado</li>
+                        <li>❌ No se puede cerrar con ESC</li>
+                        <li>❌ No anuncia el modal a lectores de pantalla</li>
+                        <li>❌ El foco no vuelve al elemento que abrió el modal</li>
+                    </ul>
+                    <div class="modal-actions">
+                        <button class="bad-button" onclick="closeModal()">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-section">
+                <h4>✅ Solución:</h4>
+                <p>Un modal accesible debería:</p>
+                <ul>
+                    <li>🔒 Atrapar el foco dentro del modal</li>
+                    <li>🎯 Mover el foco al primer elemento interactivo</li>
+                    <li>🔙 Devolver el foco al elemento que abrió el modal al cerrar</li>
+                    <li>🎹 Permitir cerrar con tecla ESC</li>
+                    <li>📢 Usar <code>aria-modal="true"</code> y <code>role="dialog"</code></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Problema 2: Listas sin roles ARIA -->
+        <section class="card problem-section">
+            <h2>📋 2. Listas personalizadas sin roles ARIA</h2>
+            <p><strong>Problema:</strong> Lista implementada con divs en lugar de elementos semánticos.</p>
+
+            <h4>Lista problemática:</h4>
+            <div class="custom-list">
+                <div class="list-item">Item 1</div>
+                <div class="list-item">Item 2</div>
+                <div class="list-item">Item 3</div>
+            </div>
+
+            <div class="solution-section">
+                <h4>✅ Solución:</h4>
+                <p>Usar elementos semánticos o agregar roles ARIA:</p>
+                <ul role="list">
+                    <li role="listitem">Item 1 (con role="listitem")</li>
+                    <li role="listitem">Item 2 (con role="listitem")</li>
+                    <li role="listitem">Item 3 (con role="listitem")</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Problema 3: Botones personalizados sin roles -->
+        <section class="card problem-section">
+            <h2>🔄 3. Botones personalizados sin ARIA</h2>
+            <p><strong>Problema:</strong> Elementos que actúan como botones pero no tienen la semántica correcta.</p>
+
+            <h4>Botones problemáticos:</h4>
+            <div class="bad-button" onclick="handleAction('div button')">
+                Div haciendo de botón (sin role)
+            </div>
+            <span tabindex="0" onclick="handleAction('span button')"
+                style="padding: 10px; background: #e0e0e0; cursor: pointer;">
+                Span haciendo de botón
+            </span>
+
+            <div class="solution-section">
+                <h4>✅ Solución:</h4>
+                <p>Usar elementos button o agregar roles ARIA:</p>
+                <button class="good-button" onclick="handleAction('real button')">
+                    Botón semántico correcto
+                </button>
+                <div role="button" tabindex="0" class="good-button" onclick="handleAction('div with role')">
+                    Div con role="button"
+                </div>
+            </div>
+        </section>
+
+        <!-- Problema 4: Formularios sin labels -->
+        <section class="card problem-section">
+            <h2>📝 4. Formularios sin labels apropiados</h2>
+            <p><strong>Problema:</strong> Inputs sin etiquetas asociadas o usando placeholders como labels.</p>
+
+            <h4>Formulario problemático:</h4>
+            <div class="form-group">
+                <span>🔍</span>
+                <input type="text" placeholder="Buscar..." id="searchInput" />
+            </div>
+            <div class="form-group">
+                <span>📧</span>
+                <input type="email" placeholder="Email" id="emailInput" />
+            </div>
+
+            <div class="solution-section">
+                <h4>✅ Solución:</h4>
+                <p>Usar elementos label apropiados:</p>
+                <div class="form-group">
+                    <label for="searchInputCorrect">🔍 Buscar:</label>
+                    <input type="text" id="searchInputCorrect" aria-describedby="searchHelp" />
+                </div>
+                <small id="searchHelp">Introduce tu término de búsqueda</small>
+
+                <div class="form-group">
+                    <label for="emailInputCorrect">📧 Email:</label>
+                    <input type="email" id="emailInputCorrect" required />
+                </div>
+            </div>
+        </section>
+
+        <!-- Problema 5: Contenido dinámico sin anuncios -->
+        <section class="card problem-section">
+            <h2>🔄 5. Contenido dinámico sin ARIA-live</h2>
+            <p><strong>Problema:</strong> Cambios en el contenido que no se anuncian a lectores de pantalla.</p>
+
+            <h4>Estado actual:</h4>
+            <div id="status-message" class="status-message">
+                Estado: Inicial
+            </div>
+
+            <button class="good-button" onclick="updateStatus()">
+                Actualizar Estado (sin ARIA-live)
+            </button>
+
+            <div class="solution-section">
+                <h4>✅ Solución:</h4>
+                <p>Usar aria-live para anunciar cambios:</p>
+                <div id="status-message-live" class="status-message" aria-live="polite">
+                    Estado: Inicial
+                </div>
+                <button class="good-button" onclick="updateStatusLive()">
+                    Actualizar Estado (con ARIA-live)
+                </button>
+            </div>
+        </section>
+
+        <!-- Sección de pruebas de escaneo -->
+        <section class="card" style="background: #e8f6f3;">
+            <h2>🔍 Probar Escaneo de Accesibilidad</h2>
+            <p>Usa la extensión Axe Linter en VS Code o ejecuta:</p>
+            <code style="background: #2c3e50; color: white; padding: 10px; display: block; border-radius: 4px;">
+                npm run scan -- public/demo2-react.html
+            </code>
+            <p style="margin-top: 10px;">Deberías detectar violaciones en las secciones marcadas como problemáticas.</p>
+        </section>
+    </div>
+
+    <script>
+        // Funciones para el modal
+        function toggleModal() {
+            const modal = document.getElementById('demoModal');
+            modal.classList.toggle('active');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('demoModal');
+            modal.classList.remove('active');
+        }
+
+        // Cerrar modal haciendo click fuera del contenido
+        document.getElementById('demoModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Funciones de demostración
+        function handleAction(source) {
+            alert(`Acción ejecutada desde: ${source}`);
+            console.log('Action handled:', source);
+        }
+
+        let statusCount = 0;
+        function updateStatus() {
+            statusCount++;
+            document.getElementById('status-message').textContent =
+                `Estado: Actualizado ${statusCount} veces (sin ARIA-live)`;
+        }
+
+        let statusLiveCount = 0;
+        function updateStatusLive() {
+            statusLiveCount++;
+            document.getElementById('status-message-live').textContent =
+                `Estado: Actualizado ${statusLiveCount} veces (con ARIA-live)`;
+        }
+
+        // Demo inicial
+        console.log('Demo 2 - Componentes React cargado');
+        console.log('Problemas intencionados para demostración de accesibilidad');
+    </script>
+</body>
+
+</html>
