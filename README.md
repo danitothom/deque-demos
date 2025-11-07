@@ -71,18 +71,3 @@ Abre un Pull Request
 
 # Licencia
 MIT License. Ver `LICENSE` para más detalles.
-
-
-### **Paso 7: Hacer Commit y Push del README**
-
-En VS Code Source Control:
-1. **Stage** el archivo README.md
-2. **Commit:** "Add project documentation"
-3. **Push:** Click en "Sync Changes" o `git push`
-
-### **Paso 8: Configurar GitHub Actions (CI/CD)**
-
-#### **8.1 Crear workflow de CI**
-Crea el directorio y archivo:
-```bash
-mkdir -p .github/workflows
