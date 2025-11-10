@@ -1,0 +1,124 @@
+{
+  "generatedAt": "2025-11-10T12:30:54.868Z",
+  "project": {
+    "id": "proj_demo_7demos",
+    "name": "7 Demos Deque - Axe Watcher",
+    "baseUrl": "http://localhost:3000",
+    "status": "active",
+    "complianceScore": 85
+  },
+  "summary": {
+    "totalScans": 15,
+    "lastScan": "2025-11-10T12:30:54.867Z",
+    "averageViolations": 3.2,
+    "trend": "improving"
+  },
+  "recentScans": [
+    {
+      "id": "scan_mock_1",
+      "timestamp": "2025-11-10T12:30:54.867Z",
+      "pageName": "Demo 1 - Página 1",
+      "violationsCount": 3,
+      "url": "http://localhost:3000/demo1"
+    },
+    {
+      "id": "scan_mock_2",
+      "timestamp": "2025-11-09T12:30:54.867Z",
+      "pageName": "Demo 2 - Página 2",
+      "violationsCount": 4,
+      "url": "http://localhost:3000/demo2"
+    },
+    {
+      "id": "scan_mock_3",
+      "timestamp": "2025-11-08T12:30:54.867Z",
+      "pageName": "Demo 3 - Página 3",
+      "violationsCount": 7,
+      "url": "http://localhost:3000/demo3"
+    },
+    {
+      "id": "scan_mock_4",
+      "timestamp": "2025-11-07T12:30:54.867Z",
+      "pageName": "Demo 4 - Página 4",
+      "violationsCount": 3,
+      "url": "http://localhost:3000/demo4"
+    },
+    {
+      "id": "scan_mock_5",
+      "timestamp": "2025-11-06T12:30:54.867Z",
+      "pageName": "Demo 5 - Página 5",
+      "violationsCount": 5,
+      "url": "http://localhost:3000/demo5"
+    },
+    {
+      "id": "scan_mock_6",
+      "timestamp": "2025-11-05T12:30:54.867Z",
+      "pageName": "Demo 6 - Página 6",
+      "violationsCount": 6,
+      "url": "http://localhost:3000/demo6"
+    },
+    {
+      "id": "scan_mock_7",
+      "timestamp": "2025-11-04T12:30:54.868Z",
+      "pageName": "Demo 7 - Página 7",
+      "violationsCount": 1,
+      "url": "http://localhost:3000/demo7"
+    },
+    {
+      "id": "scan_mock_8",
+      "timestamp": "2025-11-03T12:30:54.868Z",
+      "pageName": "Demo 1 - Página 8",
+      "violationsCount": 3,
+      "url": "http://localhost:3000/demo1"
+    },
+    {
+      "id": "scan_mock_9",
+      "timestamp": "2025-11-02T12:30:54.868Z",
+      "pageName": "Demo 2 - Página 9",
+      "violationsCount": 7,
+      "url": "http://localhost:3000/demo2"
+    },
+    {
+      "id": "scan_mock_10",
+      "timestamp": "2025-11-01T12:30:54.868Z",
+      "pageName": "Demo 3 - Página 10",
+      "violationsCount": 2,
+      "url": "http://localhost:3000/demo3"
+    }
+  ],
+  "violationSummary": {
+    "critical": 2,
+    "serious": 8,
+    "moderate": 15,
+    "minor": 12
+  },
+  "demoPerformance": {
+    "demo1": {
+      "scans": 3,
+      "avgViolations": 2.3
+    },
+    "demo2": {
+      "scans": 2,
+      "avgViolations": 4.1
+    },
+    "demo3": {
+      "scans": 3,
+      "avgViolations": 1.8
+    },
+    "demo4": {
+      "scans": 2,
+      "avgViolations": 3.5
+    },
+    "demo5": {
+      "scans": 3,
+      "avgViolations": 2.9
+    },
+    "demo6": {
+      "scans": 2,
+      "avgViolations": 5.2
+    },
+    "demo7": {
+      "scans": 2,
+      "avgViolations": 2.1
+    }
+  }
+}

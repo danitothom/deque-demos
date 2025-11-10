@@ -9,86 +9,85 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 async function scanFile(filePath) {
-    try {
-        console.log(`🔍 Scanning: ${filePath}`);
+    console.log(`🔍 Escaneando archivo: ${filePath}`);
+    console.log('='.repeat(60));
 
+    try {
         const content = readFileSync(filePath, 'utf8');
 
-        // Configurar JSDOM correctamente
         const dom = new JSDOM(content, {
             url: 'http://localhost:3000',
             resources: 'usable'
         });
 
-        // Configurar globales para axe-core
         global.window = dom.window;
         global.document = dom.window.document;
         global.Node = dom.window.Node;
         global.HTMLElement = dom.window.HTMLElement;
-        global.Element = dom.window.Element;
 
-        // Inyectar axe-core en el contexto del documento
         dom.window.eval(axe.source);
 
-        // CONFIGURACIÓN CORREGIDA - usar runOnly en lugar de rules
         const config = {
             runOnly: {
                 type: 'tag',
                 values: ['wcag2a', 'wcag2aa', 'best-practice']
             }
-            // O usar runOnly con IDs específicos:
-            // runOnly: ['color-contrast', 'image-alt', 'button-name', 'label']
         };
 
-        // Ejecutar análisis en el documento completo
         const results = await dom.window.axe.run(dom.window.document, config);
-        generateReport(results, filePath);
+        displayResults(results, filePath);
+
+        return results;
 
     } catch (error) {
-        console.error('❌ Error scanning file:', error.message);
-        console.error('Stack:', error.stack);
+        console.error('❌ Error escaneando archivo:', error.message);
+        throw error;
     }
 }
 
-function generateReport(results, filePath) {
-    console.log('\n📊 AXE ACCESSIBILITY REPORT');
-    console.log('='.repeat(50));
-    console.log(`File: ${filePath}`);
-    console.log(`Timestamp: ${new Date().toISOString()}`);
-    console.log(`Total Violations: ${results.violations.length}`);
-    console.log('='.repeat(50));
+function displayResults(results, filePath) {
+    console.log('\n📊 RESULTADOS DEL ESCANEO');
+    console.log('='.repeat(60));
+    console.log(`Archivo: ${filePath}`);
+    console.log(`Violaciones: ${results.violations.length}`);
+    console.log(`Passes: ${results.passes.length}`);
+    console.log(`Incompletos: ${results.incomplete.length}`);
+    console.log(`No aplicables: ${results.inapplicable.length}`);
 
-    if (results.violations.length === 0) {
-        console.log('✅ No accessibility violations found!');
-        return;
-    }
-
-    results.violations.forEach((violation, index) => {
-        console.log(`\n${index + 1}. ${violation.id} (${violation.impact.toUpperCase()})`);
-        console.log(`   📝 ${violation.description}`);
-        console.log(`   🔗 ${violation.helpUrl}`);
-        console.log(`   📍 ${violation.nodes.length} element(s) affected:`);
-
-        violation.nodes.forEach((node, nodeIndex) => {
-            console.log(`      ${nodeIndex + 1}. ${node.target}`);
-            if (node.failureSummary) {
-                console.log(`         💡 ${node.failureSummary.split('\n')[0]}`);
-            }
+    if (results.violations.length > 0) {
+        console.log('\n⚠️  VIOLACIONES ENCONTRADAS:');
+        results.violations.forEach((violation, index) => {
+            console.log(`\n${index + 1}. ${violation.id} (${violation.impact})`);
+            console.log(`   📝 ${violation.description}`);
+            console.log(`   🔗 ${violation.helpUrl}`);
+            console.log(`   📍 ${violation.nodes.length} elemento(s) afectado(s)`);
         });
-    });
+    } else {
+        console.log('\n🎉 ¡No se encontraron violaciones!');
+    }
 
-    console.log('\n💡 RECOMMENDATIONS:');
-    results.violations.forEach(violation => {
-        console.log(`   • ${violation.help}`);
+    // Resumen de métricas
+    const impactSummary = results.violations.reduce((acc, violation) => {
+        acc[violation.impact] = (acc[violation.impact] || 0) + 1;
+        return acc;
+    }, {});
+
+    console.log('\n📈 RESUMEN DE IMPACTO:');
+    Object.entries(impactSummary).forEach(([impact, count]) => {
+        console.log(`   ${impact}: ${count}`);
     });
 }
 
-// Ejecutar si se pasa un archivo como argumento
+// Manejo de argumentos de línea de comandos
 const filePath = process.argv[2];
-if (filePath) {
-    scanFile(resolve(process.cwd(), filePath));
-} else {
-    console.error('❌ Please provide a file path');
-    console.log('Usage: node scripts/scan-file.js <file-path>');
+if (!filePath) {
+    console.error('❌ Uso: npm run scan -- <ruta-del-archivo>');
+    console.error('Ejemplo: npm run scan -- public/demo1-basic-html.html');
     process.exit(1);
 }
+
+const fullPath = resolve(process.cwd(), filePath);
+scanFile(fullPath).catch(error => {
+    console.error('💥 Error fatal:', error.message);
+    process.exit(1);
+});
