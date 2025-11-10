@@ -1,0 +1,51 @@
+name: Accessibility Tests with Deque Integration
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 8 * * 1-5' # Ejecutar cada día laboral a las 8 AM
+
+jobs:
+  accessibility-tests:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run Cypress accessibility tests
+      run: npm run cy:run:accessibility
+      env:
+        DQEU_API_KEY: ${{ secrets.DEQUE_API_KEY }}
+        
+    - name: Upload results to Deque
+      run: npm run deque:upload
+      env:
+        DEQUE_API_KEY: ${{ secrets.DEQUE_API_KEY }}
+        DEQUE_PROJECT_ID: ${{ secrets.DEQUE_PROJECT_ID }}
+        
+    - name: Upload test report
+      uses: actions/upload-artifact@v3
+      with:
+        name: accessibility-report
+        path: reports/
+        
+    - name: Notify Slack on failure
+      if: failure()
+      uses: 8398a7/action-slack@v3
+      with:
+        status: failure
+        text: 'Las pruebas de accesibilidad han fallado'
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
