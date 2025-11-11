@@ -391,7 +391,7 @@ module.exports = (on, config) => {
     // Before run hook - Inicialización
     on('before:run', async (details) => {
         console.log('🚀 Iniciando pruebas de accesibilidad con Axe Watcher...')
-        console.log('📍 URL base:', config.e2e.baseUrl)
+        console.log('📍 URL base:', config.baseUrl || 'http://localhost:3000')
         console.log('🎯 Demos a probar: 7')
         console.log('🔧 Herramienta: Cypress + Axe Core')
     })

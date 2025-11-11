@@ -1,0 +1,226 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 0,
+    "pending": 0,
+    "failures": 6,
+    "start": "2025-11-11T14:50:21.883Z",
+    "end": "2025-11-11T14:50:39.167Z",
+    "duration": 17284,
+    "testsRegistered": 6,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ba129d89-7f2d-4a70-b490-7caeb3fa79b2",
+      "title": "",
+      "fullFile": "cypress/e2e/accessibility/all-demos.cy.js",
+      "file": "cypress/e2e/accessibility/all-demos.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "09aee282-77ce-4328-8276-8f9c475532e7",
+          "title": "Pruebas de Accesibilidad - Todos los Demos",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Demo 1 - Formularios",
+              "fullTitle": "Pruebas de Accesibilidad - Todos los Demos Demo 1 - Formularios",
+              "timedOut": null,
+              "duration": 859,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(`/${demo.file}`);\ncy.injectAxe();\ncy.runFullA11yTest(`Demo ${demo.number} - ${demo.name}`, demo.number);",
+              "err": {
+                "message": "TypeError: Rules property must be an array",
+                "estack": "TypeError: Rules property must be an array\n    at Object.Yf [as configure] (http://localhost:3000/__cypress/tests?p=cypress/support/e2e.js)\n    at Context.eval (webpack://deque-demos/./node_modules/cypress-axe/dist/index.js:30:0)\n    at getRet (http://localhost:3000/__cypress/runner/cypress_runner.js:122341:20)\n    at tryCatcher (http://localhost:3000/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:3000/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:3000/__cypress/runner/cypress_runner.js:122352:66)\n    at Context.then (http://localhost:3000/__cypress/runner/cypress_runner.js:122603:21)\n    at wrapped (http://localhost:3000/__cypress/runner/cypress_runner.js:145681:19)\n    at <unknown> (http://localhost:3000/__cypress/runner/cypress_runner.js:151628:15)",
+                "diff": null
+              },
+              "uuid": "0125e40b-1b99-4108-bba4-2648dea95159",
+              "parentUUID": "09aee282-77ce-4328-8276-8f9c475532e7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Demo 2 - Navegación",
+              "fullTitle": "Pruebas de Accesibilidad - Todos los Demos Demo 2 - Navegación",
+              "timedOut": null,
+              "duration": 277,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(`/${demo.file}`);\ncy.injectAxe();\ncy.runFullA11yTest(`Demo ${demo.number} - ${demo.name}`, demo.number);",
+              "err": {
+                "message": "TypeError: Rules property must be an array",
+                "estack": "TypeError: Rules property must be an array\n    at Object.Yf [as configure] (http://localhost:3000/__cypress/tests?p=cypress/support/e2e.js)\n    at Context.eval (webpack://deque-demos/./node_modules/cypress-axe/dist/index.js:30:0)\n    at getRet (http://localhost:3000/__cypress/runner/cypress_runner.js:122341:20)\n    at tryCatcher (http://localhost:3000/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:3000/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:3000/__cypress/runner/cypress_runner.js:122352:66)\n    at Context.then (http://localhost:3000/__cypress/runner/cypress_runner.js:122603:21)\n    at wrapped (http://localhost:3000/__cypress/runner/cypress_runner.js:145681:19)\n    at <unknown> (http://localhost:3000/__cypress/runner/cypress_runner.js:151628:15)",
+                "diff": null
+              },
+              "uuid": "e9690d01-cc45-4695-a7b6-0ed471f0eccc",
+              "parentUUID": "09aee282-77ce-4328-8276-8f9c475532e7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Demo 3 - Multimedia",
+              "fullTitle": "Pruebas de Accesibilidad - Todos los Demos Demo 3 - Multimedia",
+              "timedOut": null,
+              "duration": 500,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(`/${demo.file}`);\ncy.injectAxe();\ncy.runFullA11yTest(`Demo ${demo.number} - ${demo.name}`, demo.number);",
+              "err": {
+                "message": "TypeError: Rules property must be an array",
+                "estack": "TypeError: Rules property must be an array\n    at Object.Yf [as configure] (http://localhost:3000/__cypress/tests?p=cypress/support/e2e.js)\n    at Context.eval (webpack://deque-demos/./node_modules/cypress-axe/dist/index.js:30:0)\n    at getRet (http://localhost:3000/__cypress/runner/cypress_runner.js:122341:20)\n    at tryCatcher (http://localhost:3000/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:3000/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:3000/__cypress/runner/cypress_runner.js:122352:66)\n    at Context.then (http://localhost:3000/__cypress/runner/cypress_runner.js:122603:21)\n    at wrapped (http://localhost:3000/__cypress/runner/cypress_runner.js:145681:19)\n    at <unknown> (http://localhost:3000/__cypress/runner/cypress_runner.js:151628:15)",
+                "diff": null
+              },
+              "uuid": "39dd95bb-8e70-4d5e-8f4b-0fc91ce5a11c",
+              "parentUUID": "09aee282-77ce-4328-8276-8f9c475532e7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Demo 5 - Contraste",
+              "fullTitle": "Pruebas de Accesibilidad - Todos los Demos Demo 5 - Contraste",
+              "timedOut": null,
+              "duration": 460,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(`/${demo.file}`);\ncy.injectAxe();\ncy.runFullA11yTest(`Demo ${demo.number} - ${demo.name}`, demo.number);",
+              "err": {
+                "message": "TypeError: Rules property must be an array",
+                "estack": "TypeError: Rules property must be an array\n    at Object.Yf [as configure] (http://localhost:3000/__cypress/tests?p=cypress/support/e2e.js)\n    at Context.eval (webpack://deque-demos/./node_modules/cypress-axe/dist/index.js:30:0)\n    at getRet (http://localhost:3000/__cypress/runner/cypress_runner.js:122341:20)\n    at tryCatcher (http://localhost:3000/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:3000/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:3000/__cypress/runner/cypress_runner.js:122352:66)\n    at Context.then (http://localhost:3000/__cypress/runner/cypress_runner.js:122603:21)\n    at wrapped (http://localhost:3000/__cypress/runner/cypress_runner.js:145681:19)\n    at <unknown> (http://localhost:3000/__cypress/runner/cypress_runner.js:151628:15)",
+                "diff": null
+              },
+              "uuid": "7180d701-ed8e-4818-9268-0f18e696e0b8",
+              "parentUUID": "09aee282-77ce-4328-8276-8f9c475532e7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Demo 6 - ARIA",
+              "fullTitle": "Pruebas de Accesibilidad - Todos los Demos Demo 6 - ARIA",
+              "timedOut": null,
+              "duration": 299,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(`/${demo.file}`);\ncy.injectAxe();\ncy.runFullA11yTest(`Demo ${demo.number} - ${demo.name}`, demo.number);",
+              "err": {
+                "message": "TypeError: Rules property must be an array",
+                "estack": "TypeError: Rules property must be an array\n    at Object.Yf [as configure] (http://localhost:3000/__cypress/tests?p=cypress/support/e2e.js)\n    at Context.eval (webpack://deque-demos/./node_modules/cypress-axe/dist/index.js:30:0)\n    at getRet (http://localhost:3000/__cypress/runner/cypress_runner.js:122341:20)\n    at tryCatcher (http://localhost:3000/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:3000/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:3000/__cypress/runner/cypress_runner.js:122352:66)\n    at Context.then (http://localhost:3000/__cypress/runner/cypress_runner.js:122603:21)\n    at wrapped (http://localhost:3000/__cypress/runner/cypress_runner.js:145681:19)\n    at <unknown> (http://localhost:3000/__cypress/runner/cypress_runner.js:151628:15)",
+                "diff": null
+              },
+              "uuid": "686ea27c-d372-4622-a309-145c2fd63161",
+              "parentUUID": "09aee282-77ce-4328-8276-8f9c475532e7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Demo 7 - Responsive",
+              "fullTitle": "Pruebas de Accesibilidad - Todos los Demos Demo 7 - Responsive",
+              "timedOut": null,
+              "duration": 365,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(`/${demo.file}`);\ncy.injectAxe();\ncy.runFullA11yTest(`Demo ${demo.number} - ${demo.name}`, demo.number);",
+              "err": {
+                "message": "TypeError: Rules property must be an array",
+                "estack": "TypeError: Rules property must be an array\n    at Object.Yf [as configure] (http://localhost:3000/__cypress/tests?p=cypress/support/e2e.js)\n    at Context.eval (webpack://deque-demos/./node_modules/cypress-axe/dist/index.js:30:0)\n    at getRet (http://localhost:3000/__cypress/runner/cypress_runner.js:122341:20)\n    at tryCatcher (http://localhost:3000/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:3000/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:3000/__cypress/runner/cypress_runner.js:122352:66)\n    at Context.then (http://localhost:3000/__cypress/runner/cypress_runner.js:122603:21)\n    at wrapped (http://localhost:3000/__cypress/runner/cypress_runner.js:145681:19)\n    at <unknown> (http://localhost:3000/__cypress/runner/cypress_runner.js:151628:15)",
+                "diff": null
+              },
+              "uuid": "5c2cffbb-cfc4-4b71-85d9-222a2c7d68dc",
+              "parentUUID": "09aee282-77ce-4328-8276-8f9c475532e7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "0125e40b-1b99-4108-bba4-2648dea95159",
+            "e9690d01-cc45-4695-a7b6-0ed471f0eccc",
+            "39dd95bb-8e70-4d5e-8f4b-0fc91ce5a11c",
+            "7180d701-ed8e-4818-9268-0f18e696e0b8",
+            "686ea27c-d372-4622-a309-145c2fd63161",
+            "5c2cffbb-cfc4-4b71-85d9-222a2c7d68dc"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 2760,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports",
+        "quiet": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

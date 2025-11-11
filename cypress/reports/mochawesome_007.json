@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-11-11T14:50:51.621Z",
+    "end": "2025-11-11T14:50:52.026Z",
+    "duration": 405,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e9be810d-3dfd-4edb-bd3b-daf4be25634e",
+      "title": "",
+      "fullFile": "cypress/e2e/accessibility/demo7-responsive.cy.js",
+      "file": "cypress/e2e/accessibility/demo7-responsive.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8e3ef50d-f89d-4dc0-837d-2ec77308ec6f",
+          "title": "Demo 7 - Responsive Design",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "debe pasar las pruebas de responsive design",
+              "fullTitle": "Demo 7 - Responsive Design debe pasar las pruebas de responsive design",
+              "timedOut": null,
+              "duration": 393,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Probar en viewport móvil\ncy.viewport(320, 480);\ncy.runFullA11yTest('Responsive - Móvil', 7);\n// Probar en viewport desktop\ncy.viewport(1280, 720);\ncy.runFullA11yTest('Responsive - Desktop', 7);",
+              "err": {
+                "message": "TypeError: Rules property must be an array",
+                "estack": "TypeError: Rules property must be an array\n    at Object.Yf [as configure] (http://localhost:3000/__cypress/tests?p=cypress/support/e2e.js)\n    at Context.eval (webpack://deque-demos/./node_modules/cypress-axe/dist/index.js:30:0)\n    at getRet (http://localhost:3000/__cypress/runner/cypress_runner.js:122341:20)\n    at tryCatcher (http://localhost:3000/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:3000/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:3000/__cypress/runner/cypress_runner.js:122352:66)\n    at Context.then (http://localhost:3000/__cypress/runner/cypress_runner.js:122603:21)\n    at wrapped (http://localhost:3000/__cypress/runner/cypress_runner.js:145681:19)\n    at <unknown> (http://localhost:3000/__cypress/runner/cypress_runner.js:151628:15)",
+                "diff": null
+              },
+              "uuid": "ba310cde-e2d2-4911-bb74-7dee69ed0c44",
+              "parentUUID": "8e3ef50d-f89d-4dc0-837d-2ec77308ec6f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "ba310cde-e2d2-4911-bb74-7dee69ed0c44"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 393,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports",
+        "quiet": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

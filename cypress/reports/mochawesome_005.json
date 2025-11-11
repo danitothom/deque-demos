@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-11-11T14:50:48.156Z",
+    "end": "2025-11-11T14:50:48.550Z",
+    "duration": 394,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4c117ad6-e27d-466d-b79a-63b6d1c31267",
+      "title": "",
+      "fullFile": "cypress/e2e/accessibility/demo5-contraste.cy.js",
+      "file": "cypress/e2e/accessibility/demo5-contraste.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7da12860-265b-4ddf-9f4c-fcb5d2b76c8d",
+          "title": "Demo 5 - Contraste de Colores",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "debe pasar las pruebas de contraste de colores",
+              "fullTitle": "Demo 5 - Contraste de Colores debe pasar las pruebas de contraste de colores",
+              "timedOut": null,
+              "duration": 387,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.runFullA11yTest('Contraste de Colores', 5, '.color-content, .main-content');",
+              "err": {
+                "message": "TypeError: Rules property must be an array",
+                "estack": "TypeError: Rules property must be an array\n    at Object.Yf [as configure] (http://localhost:3000/__cypress/tests?p=cypress/support/e2e.js)\n    at Context.eval (webpack://deque-demos/./node_modules/cypress-axe/dist/index.js:30:0)\n    at getRet (http://localhost:3000/__cypress/runner/cypress_runner.js:122341:20)\n    at tryCatcher (http://localhost:3000/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:3000/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:3000/__cypress/runner/cypress_runner.js:122352:66)\n    at Context.then (http://localhost:3000/__cypress/runner/cypress_runner.js:122603:21)\n    at wrapped (http://localhost:3000/__cypress/runner/cypress_runner.js:145681:19)\n    at <unknown> (http://localhost:3000/__cypress/runner/cypress_runner.js:151628:15)",
+                "diff": null
+              },
+              "uuid": "bc245f83-214c-4d7d-9cd6-e11c11a38abe",
+              "parentUUID": "7da12860-265b-4ddf-9f4c-fcb5d2b76c8d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "bc245f83-214c-4d7d-9cd6-e11c11a38abe"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 387,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports",
+        "quiet": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
