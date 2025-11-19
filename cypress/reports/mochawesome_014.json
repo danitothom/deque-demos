@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-11-13T12:18:55.959Z",
+    "end": "2025-11-13T12:18:56.711Z",
+    "duration": 752,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "15a18d48-235b-472c-9260-cec9a2215c91",
+      "title": "",
+      "fullFile": "cypress/e2e/accessibility/demo6-aria.cy.js",
+      "file": "cypress/e2e/accessibility/demo6-aria.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c5c98fa1-ceea-4ae9-9d92-1e9942d14867",
+          "title": "Demo 6 - Atributos ARIA",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "debe pasar las pruebas de atributos ARIA",
+              "fullTitle": "Demo 6 - Atributos ARIA debe pasar las pruebas de atributos ARIA",
+              "timedOut": null,
+              "duration": 736,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.runFullA11yTest('Atributos ARIA', 6, '.aria-demo, [aria-*]');\n// Verificar ARIA attributes válidos\ncy.get('[aria-label]').should('have.attr', 'aria-label');",
+              "err": {
+                "message": "TypeError: Rules property must be an array",
+                "estack": "TypeError: Rules property must be an array\n    at Object.Yf [as configure] (http://localhost:3000/__cypress/tests?p=cypress/support/e2e.js)\n    at Context.eval (webpack://deque-demos/./node_modules/cypress-axe/dist/index.js:30:0)\n    at getRet (http://localhost:3000/__cypress/runner/cypress_runner.js:122341:20)\n    at tryCatcher (http://localhost:3000/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:3000/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:3000/__cypress/runner/cypress_runner.js:122352:66)\n    at Context.then (http://localhost:3000/__cypress/runner/cypress_runner.js:122603:21)\n    at wrapped (http://localhost:3000/__cypress/runner/cypress_runner.js:145681:19)\n    at <unknown> (http://localhost:3000/__cypress/runner/cypress_runner.js:151628:15)",
+                "diff": null
+              },
+              "uuid": "83e59866-57fa-4cfe-8487-efb07a221168",
+              "parentUUID": "c5c98fa1-ceea-4ae9-9d92-1e9942d14867",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "83e59866-57fa-4cfe-8487-efb07a221168"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 736,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports",
+        "quiet": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
